@@ -8,7 +8,14 @@ const io = socketio(server);
 
 const PORT = process.env.PORT || 5000;
 
-//Define route
-app.use('/', require('./route/api/router'))
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
 
-app.listen(PORT, console.log(`Server has started on ${PORT}`))
+//Define route
+app.use('/', require('./route/api/router'));
+
+app.listen(PORT, console.log(`Server has started on ${PORT}`));
