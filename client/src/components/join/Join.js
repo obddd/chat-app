@@ -30,7 +30,7 @@ const Join = () => {
             value={room}
             onChange={(event) => setRoom(event.target.value)}
           />
-          <label for="room" class="form__label">
+          <label for="room" className="form__label">
             Room
           </label>
         </div>
